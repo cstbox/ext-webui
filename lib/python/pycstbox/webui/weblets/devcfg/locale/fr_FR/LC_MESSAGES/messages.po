@@ -1,0 +1,181 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Eric PASCUAL <eric.pascual@cstb.fr>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ../..\n"
+
+msgid "A <b>Delete</b> button is also available in the device editor"
+msgstr "Un bouton <b>Supprimer</b> est également disponible dans l'éditeur d'équipement"
+
+msgid "Attach a new device to this coordinator"
+msgstr "Ajouter un nouvel équipement au coordinateur"
+
+msgid "Import network configuration"
+msgstr "Importer la configuration du réseau"
+
+msgid "Add coordinator"
+msgstr "Ajout coordinateur"
+
+msgid "Do you really want to delete "
+msgstr "Voulez-vous réellement supprimer "
+
+msgid "Add"
+msgstr "Ajouter"
+
+msgid "Location"
+msgstr "Emplacement"
+
+msgid "Device discovery process running..."
+msgstr "Découverte d'équipement en cours..."
+
+msgid "Select the file to import, then click on <b>Do it</b> button."
+msgstr "Sélectionner le fichier à importer puis cliquer sur <b>Exécuter</b>."
+
+msgid "Save"
+msgstr "Enregistrer"
+
+msgid "New coordinator"
+msgstr "Ajouter un coordinateur"
+
+msgid "This will delete <b>all</b> coordinators and devices and <b>cannot be undone</b>."
+msgstr "Cela supprimera <b>tous</b> les coordinateurs et équipement, et <b>ne peut pas être annulé</b>."
+
+msgid "Fill-in the form, then click on <b>Do it</b>"
+msgstr "Compléter le formulaire, puis cliquer sur <b>Exécuter</b>"
+
+msgid "Export network configuration"
+msgstr "Exporter la configuration du réseau"
+
+msgid "Number of coordinators"
+msgstr "Nombre de coordinateurs"
+
+msgid "Device type"
+msgstr "Type d'équipement"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Identifier"
+msgstr "Identificateur"
+
+msgid "Address"
+msgstr "Addresse"
+
+msgid "(hex)"
+msgstr "(hexa)"
+
+msgid "Devices configuration"
+msgstr "Configuration équipements"
+
+msgid "Delete"
+msgstr "Supprimer"
+
+msgid "Additional information"
+msgstr "Information complémentaire"
+
+msgid "Reset"
+msgstr "Effacer"
+
+msgid "Clear network configuration"
+msgstr "Effacer la configuration réseau"
+
+msgid "Right-click on it in the tree to open the contextual menu."
+msgstr "Clic droit dans l'arbre pour ouvrir le menu contextuel"
+
+msgid "This will save to network configuration to your computer disk."
+msgstr "Ceci enregistrera la configuration du réseau sur votre ordinateur"
+
+msgid "Do you <b>really</b> want to do this"
+msgstr "Voulez-vous <b>réellement</b> faire cela"
+
+msgid "Device network summary"
+msgstr "Résumé de la configuration"
+
+msgid "Total number of devices"
+msgstr "Nombre total d'équipements"
+
+msgid "Maintenance ID"
+msgstr "Id de maintenance"
+
+msgid "Use the appropriate action on the device to have it detected<br/>or hit the <b>Cancel</b> button to abort the procedure."
+msgstr "Déclenchez le mécanisme de détection sur votre équipement<br/>ou cliquez sur <b>Annuler</b> pour abandonner la procédure."
+
+msgid "Delete an existing device"
+msgstr "Supprimer un équipement"
+
+msgid "Modify an existing device"
+msgstr "Modifier un équipement"
+
+msgid "Protocol"
+msgstr "Protocole"
+
+msgid "Configuration tools"
+msgstr "Utilitaires"
+
+msgid "Do it"
+msgstr "Exécuter"
+
+msgid "Discover"
+msgstr "Détecter"
+
+msgid "Loading network configuration..."
+msgstr "Chargement de la configuration..."
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Update address"
+msgstr "Mettre l'adresse à jour"
+
+msgid "Unexpected error"
+msgstr "Erreur inattendue"
+
+msgid "Change device id"
+msgstr "Modifier l'identificateur de l'équipement"
+
+msgid "Change id"
+msgstr "Modifier l'id"
+
+msgid "Confirmation"
+msgstr "Confirmation"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Click on it in the tree to open the device editor"
+msgstr "Cliquer dans l'arbre pour ouvrir l'éditeur d'équipement"
+
+msgid "Id"
+msgstr "Identificateur"
+
+msgid "Product"
+msgstr "Produit"
+
+msgid "Enter new device id"
+msgstr "Entrer le  nouvel identificateur"
+
+msgid "Associated variable"
+msgstr "Variable associée"
+
+msgid "Definition"
+msgstr "Définition"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "type"
+msgstr "type"
+
+msgid "units"
+msgstr "unités"
+
+#~ msgid "No change done"
+#~ msgstr "Aucune modification effectuée"

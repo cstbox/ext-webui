@@ -1,0 +1,223 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DevCfg Editor\n"
+"POT-Creation-Date: 2012-12-04 15:24:59.349267\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Eric PASCUAL <eric.pascual@cstb.fr>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: fr\n"
+"X-Poedit-Country: FR\n"
+
+msgid "Editing device <span class='objectId'>{0}</span>"
+msgstr "Edition de l'équipement <span class='objectId'>{0}</span>"
+
+msgid "Editing devices attached to coordinator <span class='objectId'>{0}</span> - Type : <span class='coordtype'>{1}</span>"
+msgstr "Edition des équipements attachés au coordinateur <span class='objectId'>{0}</span> - Type : <span class='coordtype'>{1}</span>"
+
+msgid "Invalid hexadecimal value"
+msgstr "Valeur hexadécimale invalide"
+
+msgid "Invalid device id"
+msgstr "Id invalide"
+
+msgid "Invalid location"
+msgstr "Emplacement invalide"
+
+msgid "Invalid variable name"
+msgstr "Nom de variable invalide"
+
+msgid "String format is incorrect."
+msgstr "Format de chaîne invalide."
+
+msgid "Invalid property name : {0}"
+msgstr "Nom de propriété invalide : {0}"
+
+msgid "Invalid metadata : {0}"
+msgstr "Meta-données invalides : {0}"
+
+msgid "No device metadata available"
+msgstr "Méta-données de matériel non disponibles"
+
+msgid "Maybe no equipment driver currently installed."
+msgstr "Aucun driver d'équipement ne semble avoir été installé."
+
+msgid "This field is required"
+msgstr "Ce champ est obligatoire"
+
+msgid "device"
+msgstr "équipement"
+
+msgid " (protocol : {0})"
+msgstr " (protocole : {0})"
+
+msgid "Could not get coordinator information."
+msgstr "Impossible de récupérer les informations du coordinateur."
+
+msgid "Delete coordinator"
+msgstr "Supprimer le coordinateur"
+
+msgid "Could not delete coordinator. Reason : {0}"
+msgstr "Impossible de supprimer ce coordinateur. Cause : {0}"
+
+msgid "Coordinator {0} successfully deleted."
+msgstr "Coordinateur {0} supprimé."
+
+msgid "Could not get product details. Reason : {0}"
+msgstr "Impossible d'obtenir les informations produit. Cause : {0}"
+
+msgid "Delete device"
+msgstr "Supprimer l'équipement"
+
+msgid "Could not delete device. Reason : {0}"
+msgstr "Impossible de supprimer cet équipement. Cause : {0}"
+
+msgid "Device {0} successfully deleted."
+msgstr "Equipement {0} supprimé."
+
+msgid "Device {0} successfully updated."
+msgstr "Equipement {0} mis à jour."
+
+msgid "Could not save changes. Reason : {0}"
+msgstr "Impossible d'enregistrer les modifications. Cause : {0}"
+
+msgid "Changes saved."
+msgstr "Modifications enregistrées."
+
+msgid "Could not create new device. <br>Reason : {0}"
+msgstr "Impossible de créer cet équipement. <br>Cause : {0}"
+
+msgid "New device successfully created."
+msgstr "Nouvel équipement créé."
+
+msgid "Could not retrieve properties for device {0}. <br>Reason : {1}"
+msgstr "Impossible de récupérer les propriétés de l'équipement  {0}. <br>Cause : {1}"
+
+msgid "Change device id"
+msgstr "Modifier l'id"
+
+msgid "Id successfully changed"
+msgstr "Identificateur modifié"
+
+msgid "Could not change the id."
+msgstr "Impossible de changer l'identificateur."
+
+msgid "Device discovery failed."
+msgstr "Echec découverte de l'équipement."
+
+msgid "Device discovery timeout"
+msgstr "Dépassement de délai de détection d'équipement"
+
+msgid "New device discovered. Fill in the missing properties and click on 'Add'."
+msgstr "Nouvel équipement détecté. Complétez le formulaire et cliquez sur 'Ajouter'."
+
+msgid "Device discovery running..."
+msgstr "Découverte d'équipements en cours..."
+
+msgid "Error"
+msgstr "Erreur"
+
+msgid "could not load configuration file"
+msgstr "impossible de charger le fichier de configuration"
+
+msgid "Zipping devices.xml..."
+msgstr "Compression du fichier devices.xml..."
+
+msgid "Unable to download files. Reason : "
+msgstr "Impossible de télécharger les fichiers. Cause : "
+
+msgid "Clearing configuration..."
+msgstr "Effacement de la configuration..."
+
+msgid "Configuration cleared."
+msgstr "Configuration effacée."
+
+msgid "Unable to clear configuration. Reason : "
+msgstr "Impossible d'effacer la configuration. Cause : "
+
+msgid "added"
+msgstr "ajouté"
+
+msgid "deleted"
+msgstr "supprimé"
+
+msgid "no info available"
+msgstr "aucune information disponible"
+
+msgid "Action performed"
+msgstr "Action exécutée"
+
+msgid "Actuator"
+msgstr "Actionneur"
+
+msgid "Task launched. Look at the 'Events' tab for results."
+msgstr "Requête envoyée."
+
+msgid "Schedule now"
+msgstr "Soumettre"
+
+msgid "Scheduled device"
+msgstr "Equipements programmés"
+
+msgid "Device global parameters"
+msgstr "Paramètres généraux de l'équipement"
+
+msgid "Control"
+msgstr "Controle"
+
+msgid "Output"
+msgstr "Sortie"
+
+msgid "Input"
+msgstr "Entrée"
+
+msgid "Could not retrieve metadata for device type {0}."
+msgstr "Impossible de récupérer les propriétés de l'équipement {0}."
+
+msgid "Reason : {0}"
+msgstr "Cause : {0}"
+
+msgid "Cannot edit device"
+msgstr "Impossible d'éditer l'équipement"
+
+msgid "Operation canceled."
+msgstr "Opération annulée."
+
+msgid "Yes"
+msgstr "Oui"
+
+msgid "No"
+msgstr "Non"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "No change done"
+msgstr "Aucune modification effectuée"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Location"
+msgstr "Emplacement"
+
+msgid "Address"
+msgstr "Addresse"
+
+msgid "Enabled"
+msgstr "Activé(e)"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "no unit"
+msgstr "sans"
+
+#~ msgid "Device discovery failed. <br>Reason : {0}"
+#~ msgstr "Echec découverte de l'équipement. <br>Cause : {0}"

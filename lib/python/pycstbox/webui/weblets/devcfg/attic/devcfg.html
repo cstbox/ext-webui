@@ -1,0 +1,289 @@
+{% extends "admin-base.html" %}
+
+{% block local_css %}
+<link href="{{url_base}}/res/devcfg.css" rel="stylesheet" type="text/css" />
+{% end %}
+
+{% block local_scripts %}
+<script src="{{url_base}}/res/devcfg.js" type="text/javascript"></script>
+<script src="/res/js/jquery.form.js" type="text/javascript"></script>
+<script src="/res/js/jquery.validate.js" type="text/javascript"></script>
+<script src="/res/js/jquery.jstree.js" type="text/javascript"></script>
+{% end %}
+
+{% block weblet_title %}{{_('Devices configuration')}}{% end %}
+
+{% block content %}
+<div id="nwtree" class="ui-transp-bkgnd ui-widget-content ui-corner-all">
+	<p id="loading" class="ui-widget">{{_('Loading network configuration...')}}</p>
+</div>
+
+<!-- DEVICE EDITOR -->
+
+<div id="device-editor"
+	class="cfgeditor-page ui-widget-content ui-corner-all ui-transp-bkgnd"
+	style="display: none">
+	<form id="frmDeviceEditor">
+		<div id="editor-form-header">
+			<div id="device-editor-status" class="status ui-corner-all"
+				style="display: none"></div>
+			<div id="msgRediscovering"
+				class="ui-widget-content ui-corner-all ui-helper-hidden">
+				<p>{{_('Device discovery process running...')}}</p>
+				<p>{%raw _('Use the appropriate action on the device to have it detected<br/>or hit the <b>Cancel</b> button to abort the procedure.')%}</p>
+				<div class="ui-processing-indicator"></div>
+				<div class="buttons">
+					<button id="btnRediscoveryCancel" type="button">{{_('Cancel')}}</button>
+				</div>
+			</div>
+		</div>
+		<!--  
+		<table style="height:100%;width:100%;border-collapse:collapse;">
+			<tr><td valign="top">
+		-->
+				<div id="form-scroller" class="scrollable">
+					<fieldset id="fset-descr" class="compact">
+						<p><label class="prompt">{{_('Device type')}}</label>
+						<input id='info_type' type='text' name='info_type' size='30' value='' class='ignore' readonly='1'/>
+						</p>
+						<p><label class="prompt">{{_('Description')}}</label>
+						<input id='info_descr' type='text' name='info_descr' size='30' value='' class='ignore' readonly='1'/>
+						</p>
+					</fieldset>
+					<fieldset id="fset-rootProps" class="compact"></fieldset>
+					<fieldset id="fset-oepProps" class="compact" style="display: none"></fieldset>
+					<fieldset id="fset-cepProps" class="compact" style="display: none"></fieldset>
+					<fieldset id="fset-schedule" class="compact" style="display: none"></fieldset>
+					<fieldset id="fset-action" class="compact" style="display: none"></fieldset>
+				</div>
+				<input id="uid" name="uid" type="hidden" />
+			<!--  
+			</td></tr>
+			<tr><td valign="bottom">
+			-->
+				<div id="editor-form-footer" class="buttons" style="vertical-align:middle;">
+					<button id="btnSave" type="submit">{{_('Save')}}</button>
+					<button id="btnDelete" type="button" class="ignore">{{_('Delete')}}</button>
+					<button id="btnRediscover" type="button" class="ignore">{{_('Update address')}}</button>
+				</div>
+				<!--
+			</td></tr>
+		</table>
+		-->
+	</form>
+</div>
+
+<!-- COORDINATOR EDITOR -->
+
+<div id="subnet-editor"
+	class="cfgeditor-page ui-widget-content ui-corner-all ui-transp-bkgnd"
+	style="display: none">
+	<div id="subnet-editor-status" class="status ui-corner-all"
+		style="display: none"></div>
+	<div class="ui-widget-content page-content">
+		</table>
+		<h2>{{_('Actions')}}</h2>
+		<div class="actions">
+			<div class="title">{{_('Modify an existing device')}}</div>
+			<div class="content">{{_('Click on it in the tree to open the device editor')}}</div>
+			<!--  -->
+			<div class="title">{{_('Delete an existing device')}}</div>
+			<div class="content">{{_('Right-click on it in the tree to open the contextual menu.')}} <br/>
+			<em>{%raw _('A <b>Delete</b> button is also available in the device editor')%}</em>
+			</div>
+			<!--  -->
+			<div class="title">{{_('Attach a new device to this coordinator')}}</div>
+			<div class="content">
+				<div id="newDeviceFormContainter"
+					class="ui-widget-content ui-corner-all">
+					<form id="frmNewDevice">
+						<fieldset class="compact">
+							<p>
+								<label for="newDevProduct" class="prompt">{{_('Product')}}</label><select
+									id="newDevProduct" name="newDevProduct" width="20"
+									class="required" style="width: 100px"></select>
+							</p>
+							<p>
+							<center>
+								<div id="devinfo" class="content"></div>
+							</center>
+							</p>
+							<p>
+								<label for="newDevId" class="prompt">{{_('Identifier')}}</label><input
+									id="newDevId" name="newDevId" width="15"
+									class="required deviceId" style="width: 100px" />
+							</p>
+							<p>
+								<label for="newDevAddr" class="prompt">{{_('Address')}} <span
+									class='label-suffix'>{{_('(hex)')}} 
+								</label><input id="newDevAddr" style="width: 100px" name="newDevAddr"
+									width="20" class="required hexdigits" />
+							</p>
+							<p>
+								<label for="newDevLoc" class="prompt">{{_('Location')}}</label><input
+									id="newDevLoc" name="newDevLoc" style="width: 100px" width="20"
+									class="required" />
+							</p>
+						</fieldset>
+						<input id="coordId" name="coordId" type="hidden" />
+						<div class="buttons">
+							<button id="btnDiscover" type="button">{{_('Discover')}}</button>
+							<button id="btnSaveNew" type="submit">{{_('Add')}}</button>
+							<button id="btnReset" type="reset" class="ignore">{{_('Reset')}}</button>
+						</div>
+					</form>
+				</div>
+				<div id="msgDiscovering"
+					class="ui-widget-content ui-corner-all ui-helper-hidden">
+					<p>{{_('Device discovery process running...')}}</p>
+					<p>{%raw _('Use the appropriate action on the device to have it detected<br/>or hit the <b>Cancel</b> button to abort the procedure.')%}</p>
+					<div class="ui-processing-indicator"></div>
+					<div class="buttons">
+						<button id="btnCancelDiscovery" type="button">{{_('Cancel')}}</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="root-page"
+	class="cfgeditor-page ui-widget-content ui-corner-all ui-transp-bkgnd"
+	style="display: none">
+	<div id="summary-status" class="status ui-corner-all"
+		style="display: none"></div>
+	<div class="ui-widget-content page-content root-page-panel">
+		<h2>{{_('Device network summary')}}</h2>
+		<table class="summary">
+			<tr>
+				<th>{{_('Number of coordinators')}}</th>
+				<td id="coordinators-count"></td>
+			</tr>
+			<tr>
+				<th>{{_('Total number of devices')}}</th>
+				<td id="devices-count"></td>
+			</tr>
+		</table>
+	</div>
+	<div class="ui-widget-content page-content root-page-panel">
+		<h2>{{_('Configuration management')}}</h2>
+		<div class="sub-panel ui-helper-clearfix">
+			<div class="sub-panel-body">
+				<p class="sub-panel-header">{{_('Import network configuration')}}</p>
+				<form name="importForm" id="importForm" method="POST" enctype="multipart/form-data">
+					<p>{%raw _('Select the file to import, then click on <b>Do it</b> button.')%}</p>
+						<input name="filepath" type="file" class="required"/> 
+					<div id="cfgUploadError"></div>
+				</form>
+			</div>
+			<div class="buttons sub-panel-buttons">
+				<button id="btnImportConfig">{{_('Do it')}}</button>
+			</div>
+		</div>
+		<div class="separator"></div>
+		<div class="sub-panel ui-helper-clearfix">
+			<div class="sub-panel-body">
+				<p class="sub-panel-header">{{_('Export network configuration')}}</p>
+				<p>{{_('This will save to network configuration to your computer disk.')}}</p>
+			</div>
+			<div class="buttons sub-panel-buttons">
+				<button id="btnSaveConfig" type="button">{{_('Do it')}}</button>
+			</div>
+		</div>
+		<div class="separator"></div>
+		<div class="sub-panel ui-helper-clearfix">
+			<div class="sub-panel-body">
+				<p class="sub-panel-header">{{_('Clear network configuration')}}</p>
+				<p>{%raw _('This will delete <b>all</b> coordinators and devices and <b>cannot be undone</b>.')%}</p>
+			</div>
+			<div class="buttons sub-panel-buttons">
+				<button id="btnClearConfig" type="button">{{_('Do it')}}</button>
+			</div>
+		</div>
+
+		<div id="loading-indicator" class="ui-helper-hidden"></div>
+	</div>
+	
+	<div class="ui-widget-content page-content root-page-panel">
+		<h2>{{_('Coordinator management')}}</h2>
+		<p>{%raw _('Fill-in the form, then click on <b>Add coordinator</b>')%}</p>
+		<div class="buttons">
+			<form name="newcoordForm" id="newcoordForm" method="POST"
+				enctype="multipart/form-data">
+				<fieldset class="compact" style="float: left">
+					<label for="newCoordType" class="prompt">{{_('Type')}}</label> 
+					<select id="newCoordType" name="newCoordType" width="20" style="width: 100px"></select>
+					<p>
+						<label for="newCoordId" class="prompt">{{_('Id')}}</label> 
+						<input name="newCoordId" style="width: 100px" class="required"/>
+					<p>
+						<label for="newportId" class="prompt">{{_('Port')}}</label> 
+						<input name="newportId" style="width: 100px" class="required"/>
+				</fieldset>
+				<div style="float:right;text-align:center">
+					<button type="submit">{{_('Add coordinator')}}</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="fatal-error"
+	class="ui-transp-bkgnd cfgeditor-page ui-widget-content ui-corner-all"
+	style="display: none">
+	<h2>{{_('Unexpected error')}}</h2>
+	<div class="status ui-corner-all" id="fatal-error-msg"></div>
+	<div id="fatal-error-additInfos-display">
+		<h3 style="color: default">{{_('Additional information')}}</h3>
+		<div id="additInfos-scroller" _class="ui-widget-content ui-corner-all">
+			<pre id="additInfos-text"></pre>
+		</div>
+	</div>
+</div>
+
+<div id="template" style="display: none">
+	<textarea id="form">
+</textarea>
+<textarea id="property-item">
+<p><label for="{0}" class="prompt">{1}</label>{2}</p>
+</textarea>
+<textarea id="inp-string">
+<input id='{0}' type='text' name='{0}' size='30' value='{1}' class='{2}' {3}/>
+</textarea>
+<textarea id="inp-int">
+<input id='{0}' type='text' name='{0}' size='30' value='{1}' class='{2}' {3}/>
+</textarea>
+<textarea id="inp-hexint">
+<input id='{0}' type='text' name='{0}' size='30' value='{1}' class='{2} hexdigits' {3}/>
+</textarea>
+<textarea id="inp-float">
+<input id='{0}' type='text' name='{0}' size='30' value='{1}' class='{2} number' {3}/>
+</textarea>
+<textarea id="inp-boolean">
+<input id='{0}' type='checkbox' name='{0}' {1}/>
+</textarea>
+<textarea id="inp-bool">
+<input id='{0}' type='checkbox' name='{0}' {1}/>
+</textarea>
+<textarea id="inp-choice">
+<select name='{0}'>{1}</select>
+</textarea>
+<textarea id="inp-option">
+<option selected='{1}'>{0}</option>
+</textarea>
+</div>
+
+<div id="dlgConfirmDelete" title="Confirmation" style="display: none">
+	<p style="margin-top: 2em">
+		<span class="icon-question" style="float: left; margin: 0 7px 20px 0;"></span>
+		{{_('Do you really want to delete ')}}<span id="itemId"></span> ?
+	</p>
+</div>
+
+<div id="dlgConfirmClear" title="Confirmation" style="display: none">
+	<p style="margin-top: 2em">
+		<span class="icon-question" style="float: left; margin: 0 7px 20px 0;"></span>
+		{%raw _('This will delete <b>all</b> coordinators and devices and <b>cannot be undone</b>.')%}</p>
+	<p>{%raw _('Do you <b>really</b> want to do this')%}</p>
+</div>
+{% end %}

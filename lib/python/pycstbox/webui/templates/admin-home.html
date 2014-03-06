@@ -1,0 +1,13 @@
+{% extends "webui-base.html" %}
+
+{% block content %}
+
+{% for name, label, icon, __ in weblets %}
+    <div class="weblet-icon glowing-btn">
+    <p><a href="/admin/{{name}}"><img src="/admin/{{name}}/res/{{icon}}"/></a></p>
+    {{_(label)}}
+    </div>
+{% end %}
+
+{% end %}
+

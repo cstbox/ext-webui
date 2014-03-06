@@ -1,0 +1,66 @@
+@CHARSET "UTF-8";
+
+#datepicker-container {
+    width: 17.5em;  /* fixed by datepicker format */
+    height: 100%;
+    float: left;
+}
+
+#events-display {
+    overflow : auto;
+    height: 100%;
+    width: 700px;
+    float: right;
+    margin-left: 10px;
+}
+
+#events_wrapper {
+    padding: 0.5em;
+}
+
+#events_length select {
+    width: 50px;
+}
+
+#events_filter, #events_info {
+    line-height: 2.5em; 
+}
+
+.dataTables_length, .dataTables_info {
+    width: 30%;
+}
+
+.dataTables_filter, .dataTables_paginate {
+    width: 70%;
+}
+
+.dataTables_scrollHead th {
+    background-color: whitesmoke;
+}
+
+table.display thead th {
+    cursor : default;
+}
+
+table#events {
+    width: auto;
+}
+
+table#events td, th {
+    border-left: 1px solid white;
+    width: auto;
+}
+
+table#events thead th {
+    cursor: default;
+    border: 1px solid white;
+}
+    
+.align-right {
+    text-align: right;
+}
+
+div.centered-content {
+    text-align: center;
+}
+

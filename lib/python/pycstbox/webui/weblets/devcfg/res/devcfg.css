@@ -1,0 +1,232 @@
+@CHARSET "UTF-8";
+
+/*
+    Network tree display
+*/
+
+.jstree a>ins {
+    height: 19px !important;
+    width: 19px !important;
+    background-position: 0 0 !important;
+}
+
+ins.root {
+    background: url("/admin/devcfg/res/images/box-19x19.png") no-repeat !important;
+}
+
+ins.coord {
+    background: url("/admin/devcfg/res/images/coordinator-19x19.png") no-repeat !important;
+}
+
+ins.device {
+    background: url("/admin/devcfg/res/images/antenna-waves-19x19.png") no-repeat !important;
+}
+
+div#nwtree {
+    width: 27em;
+    height: 100%;
+    overflow: auto;
+    float: left;
+}
+
+div#nwtree p#loading {
+    text-align: center;
+}
+
+/*
+    Shared settings
+*/
+div.page-content {
+    padding: 5px 20px;
+    border: none;
+}
+
+form p {
+    clear: both;
+}
+
+form div.buttons {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+div.right-margin {
+    float: right;
+    width: 15%;
+}
+
+fieldset {
+    border: none;
+}
+
+fieldset.compact p {
+    margin: 0;
+}
+
+.ui-widget-header h3 {
+    margin: 2px 5px;
+}
+
+/*
+    Configuration editor page
+*/
+div.cfgeditor-page {
+    width: 44em;
+    height: 100%;
+    padding: 0 5px;
+    float: right;
+}
+
+fieldset.end-point {
+    border-top: 1px solid #2E6E9E;
+    margin-left: 0px;
+}
+
+legend {
+    color: #2E6E9E;
+    padding-left: 10px;
+}
+
+button {
+    margin: 0 0.5em;
+}
+
+label.prompt {
+    width: 14em;
+}
+
+/*
+    Root page
+*/
+div.root-page-panel h2 {
+    border-bottom: 1px solid;
+    margin-bottom: 5px
+}
+
+div.root-page-panel div.sub-panel {
+    /*background-color: whitesmoke;*/
+    clear: both;
+    margin-top: 5px;
+    padding: 3px 10px;
+}
+
+div.sub-panel-body {
+    float: left;
+    width: 80%;
+}
+
+div.sub-panel-body p:not(.sub-panel-header ) {
+    margin-top: 3px;
+    font-style: italic;
+    color: #808080;
+}
+
+p.sub-panel-header {
+    color: #1D5987;
+    margin-top: 0;
+    font-weight: bold;
+}
+
+div.sub-panel-body div.sub-panel-buttons {
+    float: right;
+    width: 15%;
+    text-align: center;
+}
+
+/*
+    Sub-network editor page
+*/
+span.objectId,span.coordtype {
+    font-weight: bold;
+}
+
+form#frmNewDevice {
+    padding: 5px;
+}
+
+form#frmNewDevice p.label-error {
+    margin-left: 10em;
+    line-height: 19px;
+}
+
+span#newDevice {
+    padding: 0 1em;
+}
+
+table.summary {
+    width: 40em;
+    margin: 10px auto;
+}
+
+table.summary th,table.summary td {
+    padding: 1em;
+}
+
+table.summary th {
+    text-align: right;
+    width: 20em;
+}
+
+table.summary td {
+    text-align: left;
+    width: 20em;
+}
+
+div#devinfo {
+    margin-top: 0;
+    font-style: italic;
+    color: grey;
+}
+
+/*
+    Device editor
+*/
+fieldset.variable-declaration legend {
+    text-align: right;
+    width: 12em;
+}
+
+fieldset.variable-declaration label.prompt {
+    font-style: italic;
+}
+
+label span.label-suffix {
+    font-style: italic;
+    padding-left: 5px;
+    color: #666666;
+}
+
+/*
+    Device deletion confirmation dialog
+*/
+div#dlgConfirmDelete span#devId {
+    font-weight: bold;
+}
+
+/*
+    Device discovery
+*/
+div#msgDiscovering {
+    text-align: center;
+}
+
+/*
+    Fatal error page
+*/
+div#fatal-error h2, #cfgUploadError {
+    color: red;
+}
+
+div#fatal-error div#additInfos-scroller {
+    height: 30em; /* must be in em, because em is used in cfgeditor (don't mix rel/abs units) */
+    overflow: auto;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+pre#additInfos-text {
+    margin: 0;
+    font-family: monospace;
+    font-size: 8pt;
+}

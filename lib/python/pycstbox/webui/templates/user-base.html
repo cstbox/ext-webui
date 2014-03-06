@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{{ branding['product'] }} - {{ branding['title'] }}</title>
+        <link rel="icon" type="image/png" href="/res/img/favicon.png"/>
+		
+        <!-- reset stylesheet -->  
+        <link href="/res/css/reset.css" rel="stylesheet" type="text/css" />
+        <!-- CSTBox interface css -->  
+        <link href="/res/css/cstbox.css" rel="stylesheet" type="text/css" />
+        <style>
+        {% block local_css %}{% end %}
+        </style>
+        {% block local_css_link %}{% end %}
+</head>
+
+<body>
+    <div id="header">
+        <div id="header-bkgnd"></div>
+        <div id="header-content">
+            <div id="main-title">{{ branding['title'] }}</div>
+            <div id="logo"></div>
+        </div>
+        <div id="applet-title">{% block applet_title %}{% end %}</div>
+    </div> 
+
+    <div id="content">
+    {% block content %}{% end %}
+    </div>
+
+    <div id="footer">
+        <a href="/admin"><img class="glowing-btn" src="/res/img/btn-home.png" title="Back to home"/></a>
+        <div id="version">Version : {{ branding['version'] }}</div>
+    </div>
+</body>
+
+</html>
+

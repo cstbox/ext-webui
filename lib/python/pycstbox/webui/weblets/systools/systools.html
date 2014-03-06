@@ -1,0 +1,144 @@
+{% extends "webui-base.html" %}
+
+{% block local_css %}
+<link href="{{url_base}}/res/systools.css" rel="stylesheet" type="text/css" />
+{% end %}
+
+{% block local_scripts %}
+<script src="{{url_base}}/res/systools.js" type="text/javascript"></script>
+<script src="/res/js/jquery.form.js" type="text/javascript"></script>
+<script src="/res/js/jquery.validate.js" type="text/javascript"></script>
+<script src="/res/js/jquery.localize.js" type="text/javascript"></script>
+{% end %}
+
+{% block weblet_title %}{{_('System configuration and tools')}}{% end %}
+
+{% block content %}
+
+<div id="tool-selector" class="ui-widget-content ui-corner-all ui-transp-bkgnd scrollable">
+    <ul id="tools-list">
+        {# filled by initialization JS code #}
+    </ul>
+</div>
+
+<div id="tool-page-container" class="ui-widget-content ui-corner-all ui-transp-bkgnd scrollable">
+
+    <div id="page-default" class="tool-page">
+        <header>{{_('About')}}</header>
+        <div class="tool-page-content">
+            <dl id="tools-summary">
+                {# filled by initialization JS code #}
+            </dl>
+        </div>
+    </div>
+
+    <div id="page-global-parms" class="tool-page ui-helper-hidden">
+        <header>{{_('Global parameters')}}</header>
+        <div class="tool-page-content">
+            <form id="gparms">
+                <p><label class='prompt'>{{ _("System id")}} :</label> 
+                <input id="system_id" name="system_id" class="required system_id" />
+                </p>
+                <div class="buttons" style="vertical-align:middle;">
+                    <button id='btnGlbParms' type="submit">{{_('OK')}}</button>
+                </div>
+            </form>
+            <div id ="gparms-status" class='status ui-corner-all ui-helper-hidden'></div>
+        </div>
+    </div>
+
+    <div id="page-log-browser" class="tool-page ui-helper-hidden">
+        <header>{{_('Log browser')}}</header>
+        <div class="tool-page-content">
+            <div id="log-list">
+                <h3 id="log-title">{{_('Available logs')}} :</h3>
+                <select id="log-select">
+                    <option value="-" selected="true">--&nbsp;{{_('Select here the log to be displayed')}}&nbsp;--</option>
+                    {% for loginfo in log_list %}
+                    <option value="{{loginfo.name}}">{{loginfo.name}}
+                    ({{loginfo.size}}k)</option>
+                    {% end %}
+                </select>   
+            </div>
+            <div id="log-buttons" class="buttons">
+                <button id='btnExportLogs'>{{_('Export all')}}</button>
+            </div>
+            <div class='ui-helper-clearfix'></div>
+            <div id='log-display'
+                class='ui-widget-content ui-corner-all scrollable'
+                ></div>
+            <div id ="log-status" class='status ui-corner-all ui-helper-hidden'></div>
+        </div>
+    </div>
+
+    <div id="page-services" class="tool-page ui-helper-hidden">
+        <header>{{_('Services control')}}</header>
+        <div class="tool-page-content">
+            <h2>{{_('Services control')}}</h2>
+            <div class="notice" lang="en">
+                This table shows the modules which can be manually
+                activated or deactivated. Core modules are not included here,
+                since changing their state can make the system unstable. 
+                <p>
+                Click on the status of a module to change it.
+            </div>
+            <div class="notice" lang="fr">
+                Cette table affiche les modules additionnels qu'il est possible
+                d'activer ou désactiver manuellement. Les modèles de base ne
+                sont pas montrés ici, car modifier leur état peut rendre le
+                système instable.
+                <p>
+                Cliquez sur le statut d'un module pour le modifier.
+            </div>
+            <center>
+                <table id="services-list">
+                    <thead>
+                        <tr>
+                            <th class='svc-name'>{{_('Service name')}}</th>
+                            <th class='svc-status'>{{_('Status')}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {# will be filled by JS code from services manager replies #}
+                    </tbody>
+                    <tfoot>
+                        {# hidden when at least one user managed service is available #}
+                        <tr><td colspan="2">                                
+                                {{_('No service can be managed by the user')}}.
+                        </td></tr>
+                </table>
+            </center>
+            <div id ="svcctl-status" class='status ui-corner-all ui-helper-hidden'></div>
+
+            <h2>{{_('Restart commands')}}</h2>
+            <div class="notice" lang="en">
+                This command lets you restart the system, to take
+                configuration changes in account. 
+            </div>
+            <div class="notice" lang="fr">
+                Cette commande permet de re-démarrer le système
+                afin de prendre en compte des modifications de configuration.
+            </div>
+            <div class="buttons">
+                <button id="btnAppRestart">{{_('Restart application services')}}</button>
+            </div>
+            <div class="notice" lang="en">
+                These above commands are used for 
+                more in depth restarts, and should be used only when
+                instructed to.
+            </div>
+            <div class="notice" lang="fr">
+                Les commandes suivantes servent à
+                effectuer un re-démarrage plus en profondeur, et ne doivent être
+                utilisées que sur indication spécifique.
+            </div>
+            <div class="buttons">
+                <button id="btnCSTBoxRestart">{{_('Restart all CSTBox services')}}</button>
+                <p>
+                <button id="btnSystemRestart">{{_('Restart the whole system')}}</button>
+            </div>
+            <div id ="restart-status" class='status ui-corner-all ui-helper-hidden'></div>
+        </div>
+    </div>
+</div>
+{% end %}

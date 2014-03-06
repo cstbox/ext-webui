@@ -1,0 +1,35 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Eric PASCUAL <eric.pascual@cstb.fr>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Topic"
+msgstr "Objet"
+
+msgid "Select a date in the calendar to display recorded events"
+msgstr "Sélectionnez une date dans le calendrier pour afficher les événements enregistrés"
+
+msgid "Export as CSV"
+msgstr "Exporter en CSV"
+
+msgid "Unit"
+msgstr "Unités"
+
+msgid "Source"
+msgstr "Source"
+
+msgid "Date/time"
+msgstr "Jour/heure"
+
+msgid "Events browser"
+msgstr "Visualisateur d'événements"
+
+msgid "Value"
+msgstr "Valeur"
+

@@ -1,0 +1,442 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+html, body {
+    height: 100%;
+    font-size: 13px;
+}
+
+body  {
+    background: url("/res/images/wallpaper.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover; /*for webKit*/
+    -moz-background-size: cover; /*Mozilla*/
+    -o-background-size: cover; /*opera*/
+    background-size: cover; /*generic*/
+}
+
+a {
+    outline: 0;
+}
+
+h1 {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0.67em 0;
+}
+
+h2 {
+    border-bottom: 1px solid #2E6E9E;
+    color: #2E6E9E;
+    font-size: large;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+th {
+    font-weight: bold;
+}
+
+label.prompt {
+    color: #2E6E9E;
+    float: left;
+    margin-right: 10px;
+    margin-top: 6px;
+    text-align: right;
+    
+}
+
+input, select, textarea, span.readonly_field {
+    margin-top: 3px;
+    padding: 1px 3px;
+    width: 250px;
+    
+}
+
+span.readonly_field {
+    display: inline-block;
+    color: #666666;
+    margin-top: 4px;
+    margin-bottom: 2px;
+}
+
+input[type="checkbox"] {
+    margin-top: 2px;
+    width: auto;
+}
+
+input[readonly="1"] {
+    margin-top: 4px;
+}
+
+fieldset {
+    margin: 5px;
+    margin-left: 0px;
+}
+
+fieldset legend {
+    font-weight: bold;
+    padding-right: 5px;
+}
+
+dl dt {
+    font-weight: bold;
+}
+
+dl dd {
+    margin-left: 30px;
+}
+
+p {
+    margin-top: 1em;
+}
+
+em, i {
+    font-style: italic;
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+#header, #header-bkgnd, #header-content {
+    width: 100%;
+    position: absolute;
+}
+
+#header {
+    top: 1em;
+}
+
+#header-bkgnd {
+    background-color: white;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 0px;
+}
+
+#header-content #main-title {
+    float: right;
+    font-size: 24pt;
+    font-weight: bold;
+    height: 60px;
+    display: inline-block;
+    margin: 0.4em 0.5em;
+    color: white;
+    text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+#weblet-title {
+    float: right;
+    font-size: 18pt;
+    font-weight: bold;
+    height: 40px;
+    margin: 60px 0.5em 0 0;
+    color: silver;
+    text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+#header-content #logo {
+    float: left;
+    background: url("/res/images/logo.png") center no-repeat;
+    height: 60px;
+    width: 250px;
+    display: inline-block;
+}
+
+#footer {
+    position: absolute;
+    bottom: 5px;
+    height: 50px;
+    clear: both;
+    width: 100%;
+    background: black;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    text-align: center;
+    color: white;
+}
+
+#version {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    width: 100%;
+    text-align: right;
+}
+
+#content {
+    position: absolute;
+    top : 100px;
+    bottom: 65px;
+    left: 20px;
+    right: 20px;
+    overflow: visible;
+    padding: 2em;
+    clear: both;
+    color: white;
+    margin: 0 auto;
+    width : 960px;
+}
+
+.button:hover {
+    background-color: #404040;
+}
+
+.glowing-btn {
+    /* make the button pict softer by blending it */
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    /*Transition*/
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}
+
+.glowing-btn:hover {
+    background-color:rgba(255,255,255,0.3);
+    /*Glow*/
+    -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+    -moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+    box-shadow: 0px 0px 20px rgba(255,255,255,0.8);    
+}
+
+.tool-btn {
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    background-color:transparent;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    /*Transition*/
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}
+
+.tool-btn:hover {
+    -webkit-box-shadow: 0px 0px 20px rgba(50,50,50,0.8);
+    -moz-box-shadow: 0px 0px 20px rgba(50,50,50,0.8);
+    -o-box-shadow: 0px 0px 20px rgba(50,50,50,0.8);
+    box-shadow: 0px 0px 20px rgba(50,50,50,0.8);
+}
+
+div.weblet-icon {
+    text-align: center;
+    text-shadow: 0.1em 0.1em 0.2em black;
+    display: inline-block;
+    width: 128px;
+    height: 120px;
+    vertical-align: top;
+    margin: 15px;
+}
+
+div.weblet-icon img {
+    width: 64px;
+    height: 64px;
+    padding: 5px;
+}
+
+.status-display {
+    margin-top: .5em !important;
+    margin-bottom: 1em !important;
+    padding: .4em 1em !important;
+    background:#FBF9EE url(images/ui-bg_glass_55_fbf9ee_1x400.png) repeat-x scroll 50% 50%;
+    border:1px solid #FCEFA1;
+    color: #363636;
+}
+
+.status-display .ui-state-error {
+    color: #CD0A0A;
+    background: url("images/ui-bg_glass_95_fef1ec_1x400.png") repeat-x scroll 50% 50% #FEF1EC;
+    border: 1px solid #CD0A0A;
+}
+
+table.display {
+    clear: both;
+    margin: 0 auto;
+    width: 100%;
+}
+
+div.actions div {
+    margin-top: 5px;
+    padding: 5px 0;
+}
+
+div.actions div.title {
+    border-top: 1px solid #1D5987;
+    color: #1D5987;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+div.actions div.title:first-child {
+    border-top: medium none;
+}
+
+div.actions div.content {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+div.actions div.content p:first-child {
+    margin-top: 0;
+}
+
+label.error {
+    background: url("images/unchecked.gif") no-repeat scroll 0 0  transparent;
+    color: red;
+    margin-left: 1em;
+    padding-left: 20px;
+}
+
+p.validate-error {
+    color : red;
+    margin-left: 13em !important;
+    padding-bottom: 5px !important;
+    padding-left: 0;
+    padding-top: 3px;
+}
+
+.icon-info {
+    background-image: url("images/info-32x32.png");
+    height: 32px;
+    width: 32px;
+}
+
+.icon-warning {
+    background-image: url("images/warning-32x32.png");
+    height: 32px;
+    width: 32px;
+}
+
+.icon-error {
+    background-image: url("images/error-32x32.png");
+    height: 32px;
+    width: 32px;
+}
+
+.icon-question {
+    background-image: url("images/question-32x32.png");
+    height: 32px;
+    width: 32px;
+}
+
+div.buttons {
+    text-align: center;
+}
+
+.ui-full-page {
+    height : 100%;
+    padding: 1em;
+}
+
+/* jQuery UI styles customization */
+
+.ui-widget {
+    font-size: 100%;
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea {
+    border: 1px solid #79B7E7;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+}
+
+.ui-widget input[readonly] {
+    border: none;
+    background: none;
+    color: #666666;
+}
+
+.ui-button-text-only, .ui-button-text {
+    padding: 2px 10px !important;
+}
+
+/* deprecated
+ * #loading-indicator {
+    background: url("images/loading.gif") no-repeat scroll center center transparent;
+    height: 32px;
+}
+*/
+
+.ui-transp-bkgnd {
+    /* for browsers not supporting RGBa */
+    background: rgb(255,255,255);
+    /* for serious browsers */
+    background: rgba(255,255,255,0.7);
+    /* for... guess who :/ */
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2ffffff, endColorstr=#b2ffffff);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2ffffff, endColorstr=#b2ffffff)";
+}
+
+.ui-dialog, .ui-dialog-bkgnd {
+    background: rgb(255,255,255);
+}
+
+.ui-widget-content {   
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.scrollable {
+    overflow: auto;
+}
+
+.ui-wait-msgbox {
+    position : fixed;
+    width : 400px;
+    height : 150px;
+    top : 50%;
+    left : 50%;
+    margin-left : -200px;
+    margin-top : -150px;
+    background-color: whitesmoke;
+}
+
+.ui-processing-indicator {
+    background: url("images/loading.gif") no-repeat scroll center center transparent;
+    height: 32px;
+    padding : 20px 40px; 
+}
+
+.ui-processing-message {
+    padding : 0 20px;
+    text-align : center;
+}
+
+.ui-widget-overlay { 
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#80000000,endColorstr=#80000000);
+    cursor: wait;
+}
+
+.notice {
+    color: #2E6E9E;
+    padding: 0 5em;
+}
+
+div#toaster {
+    position : absolute;
+    width: 250px;
+    height: 32px;
+    left: 20px;
+    top:80px;
+    overflow: hidden;
+    padding: 10px;
+    padding-left:50px;
+    background: rgba(0,0,0,0.5) url("/res/images/warning-32x32.png") no-repeat;
+    background-position: 10px 10px;
+    color: white;
+}

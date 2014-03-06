@@ -1,0 +1,62 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Eric PASCUAL <eric.pascual@cstb.fr>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ../..\n"
+
+msgid "System configuration and tools"
+msgstr "Outils et configuration système"
+
+msgid "About"
+msgstr "A propos"
+
+msgid "Global parameters"
+msgstr "Paramètres généraux"
+
+msgid "System id"
+msgstr "Identificateur du système"
+
+msgid "Log browser"
+msgstr "Visualisateur de journeaux"
+
+msgid "Available logs"
+msgstr "Journeaux disponibles"
+
+msgid "Select here the log to be displayed"
+msgstr "Sélectionnez le journal à afficher"
+
+msgid "Export all"
+msgstr "Tout exporter"
+
+msgid "Services control"
+msgstr "Contrôle des services"
+
+msgid "Service name"
+msgstr "Nom du service"
+
+msgid "Status"
+msgstr "Statut"
+
+msgid "No service can be managed by the user"
+msgstr "Aucun service ne peut être géré par l'utilisateur"
+
+msgid "Restart commands"
+msgstr "Commandes de redémarrage"
+
+msgid "Restart application services"
+msgstr "Redémarrer les services applicatifs"
+
+msgid "Restart all CSTBox services"
+msgstr "Redémarrer tous les services de la CSTBox"
+
+msgid "Restart the whole system"
+msgstr "Redémarrer le système complet"
+

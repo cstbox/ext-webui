@@ -1,0 +1,62 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DevCfg Editor\n"
+"POT-Creation-Date: 2012-12-04 15:24:59.349267\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Eric PASCUAL <eric.pascual@cstb.fr>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: fr\n"
+"X-Poedit-Country: FR\n"
+
+msgid "Global parameters"
+msgstr "Paramètres généraux"
+
+msgid "Settings of CSTBox global parameters"
+msgstr "Configuration des paramètres généraux de la CSTBox"
+
+msgid "Log browser"
+msgstr "Visualisateur de journeaux"
+
+msgid "Browse the logs of the CSTBox middleware components"
+msgstr "Consultation des journeaux des composants de l'environnement CSTBox"
+
+msgid "Services control"
+msgstr "Contrôle des services"
+
+msgid "Access to services status and control actions"
+msgstr "Consultation et modification du statut des services"
+
+msgid "Command successfully executed."
+msgstr "Commande exécutée avec succès."
+
+msgid "Command failed. (error type : {0} - message : {1})"
+msgstr "Commande en échec. (erreur : {0} - message : {1})"
+
+msgid "Invalid system id"
+msgstr "Identificateur système invalide"
+
+msgid "Loading log"
+msgstr "Journal en cours de chargement"
+
+msgid "running"
+msgstr "en cours d'exécution"
+
+msgid "stopped"
+msgstr "arrêté"
+
+msgid "Restarting"
+msgstr "Redémarrage en cours"
+
+msgid "Reconnecting to de box"
+msgstr "Reconnexion à la box en cours"
+
+msgid "Starting service"
+msgstr "Service en cours de démarrage"
+
+msgid "Stopping service"
+msgstr "Service en cours de terminaison"
+

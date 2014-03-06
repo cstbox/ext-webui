@@ -1,0 +1,180 @@
+div.toplevel {
+	
+}
+
+div#tool-selector {
+    width: 15em;
+    height: 100%;
+    float: left;
+    padding: 0 5px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+div#tool-page-container {
+    padding: 10px;
+}
+
+div.tool-page {
+    height: 100%;
+}
+
+div.tool-page header {
+    color: #2E6E9E;
+    font-size: large;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #2E6E9E; 
+}
+
+div.tool-page h2 {
+    border-bottom: 1px solid;
+    margin-bottom: 1em; 
+}
+
+div.tool-page div.tool-page-content {
+    margin: 40px;
+    color: #404040;
+}
+
+div.buttons {
+    padding: 10px;
+}
+
+ul#tools-list {
+    list-style-type: none;
+}
+
+ul#tools-list li {
+    margin: 10px;
+}
+
+ul#tools-list li img {
+    height: 72px;
+    width: 72px;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+ol li {
+    margin: 10px 50px;
+}
+
+dl {
+    margin: 5px 10px;
+}
+
+dl dt, dd {
+    margin-top: 10px;
+}
+
+input.small-width {
+	width: 3em;
+}
+
+div#log-list {
+    float: left;
+    padding-right : 20px;
+}
+
+div#log-buttons {
+    float: left;
+}
+
+div#log-display {
+    height: 33em;
+    width: 100%;
+    margin-top: 1em; 
+    font-family: monospace;
+    font-size: 0.85em;
+    overflow: scroll;
+    white-space: nowrap;
+    background: black;
+    color: white;
+    padding: 5px;
+}
+
+span.log-info {
+    color: white;
+}
+
+span.log-warn {
+    color: orange;
+}
+
+span.log-error, span.log-critical {
+    color: red;
+    font-weight: bold;
+}
+
+span.log-addit {
+    color: cyan;
+}
+
+table#services-list {
+    border-spacing: 5px;
+}
+
+table#services-list thead {
+    color: grey;
+    font-size: 120%;
+}
+
+table#services-list > thead th {
+    border-bottom : 1px solid;
+}
+
+table#services-list th, table#services-list td {
+    padding : 5px;
+    text-align: left;
+}
+
+table#services-list tfoot {
+    font-style: italic;
+    color: #2E6E9E;
+}
+
+table#services-list tfoot td {
+    text-align: center;
+}
+
+.svc-name {
+    width: 20em;
+}
+
+.svc-status {
+    width: 10em;
+}
+
+.svc-running, .svc-stopped {
+    text-decoration : none;
+}
+
+.svc-running {
+    color : green !important;
+}
+
+.svc-stopped {
+    color : red !important;
+}
+
+.glowing-btn {
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    /*Transition*/
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}
+
+.glowing-btn:hover {
+    background-color:rgba(255,255,255,0.5);
+    /*Glow*/
+    -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,1);
+    -moz-box-shadow: 0px 0px 20px rgba(255,255,255,1);
+    box-shadow: 0px 0px 20px rgba(255,255,255,1);    
+}
+
+
