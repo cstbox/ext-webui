@@ -1,15 +1,14 @@
+# CSTBox framework
+#
 # Makefile for building the Debian distribution package containing the
-# core part of the CSTBox runtime.
-
+# Web base user interface extension module.
+#
 # author = Eric PASCUAL - CSTB (eric.pascual@cstb.fr)
-# copyright = Copyright (c) 2013 CSTB
-# vcsid = $Id$
-# version = 1.0.0
 
 # name of the CSTBox module
 MODULE_NAME=ext-webui
 
-include ../devel/makefile-dist.mk
+include $(CSTBOX_DEVEL_HOME)/devel/lib/makefile-dist.mk
 
 copy_files: \
 	copy_bin_files \
