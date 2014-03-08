@@ -8,7 +8,7 @@
 # name of the CSTBox module
 MODULE_NAME=ext-webui
 
-include $(CSTBOX_DEVEL_HOME)/devel/lib/makefile-dist.mk
+include $(CSTBOX_DEVEL_HOME)/lib/makefile-dist.mk
 
 copy_files: \
 	copy_bin_files \
