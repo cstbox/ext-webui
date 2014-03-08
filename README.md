@@ -10,4 +10,4 @@ providing basic administration services.
 
 ## Runtime dependencies
 
-This extensions requites the CSTBox core to be already installed.
+This extension requires the CSTBox core to be already installed.
