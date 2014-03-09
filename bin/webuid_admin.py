@@ -26,9 +26,6 @@
 """
 
 __author__ = 'Eric PASCUAL - CSTB (eric.pascual@cstb.fr)'
-__copyright__ = 'Copyright (c) 2012 CSTB'
-__vcs_id__ = '$Id$'
-__version__ = '1.0.0'
 
 import logging
 import os.path
@@ -76,7 +73,7 @@ if __name__ == '__main__':
     settings = {
         "product" : "CSTBox",
         "main_title" : "Administration Console",
-        "version" : "3.0.0"
+        "version" : "1.0.0"
     }
 
     try:
