@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SVC="cstbox-webui"
+SVC="cstbox-webadmin"
 
 # starts the service if the CSTBox is currently running
 if [ -e /var/run/cstbox/cstbox-dbus.pid ] ; then

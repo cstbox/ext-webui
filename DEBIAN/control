@@ -3,7 +3,7 @@ Version: 1.0.0
 Section: base
 Priority: optional
 Architecture: all
-Depends: cstbox-core
+Depends: cstbox-core, cstbox-deps-http
 Maintainer: Eric Pascual <eric.pascual@cstb.fr>
 Description: CSTBox Web based user interface
  This package installs the extension providing the Web based user interface of the CSTBox.

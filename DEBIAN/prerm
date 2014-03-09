@@ -5,7 +5,7 @@ set -e
 # stop service, if running 
 
 PIDFILES_DIR=/var/run/cstbox
-SVC="cstbox-webui"
+SVC="cstbox-webadmin"
 
 if [ -f $PIDFILES_DIR/$SVC.pid ] ; then
     service $SVC stop
