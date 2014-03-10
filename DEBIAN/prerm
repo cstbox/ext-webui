@@ -2,11 +2,8 @@
 
 set -e
 
-# stop service, if running 
+. /etc/cstbox/setenv
+. $CSTBOX_LIB_DPKG/lib-maintscript
 
-PIDFILES_DIR=/var/run/cstbox
-SVC="cstbox-webadmin"
-
-if [ -f $PIDFILES_DIR/$SVC.pid ] ; then
-    service $SVC stop
-fi
+stop_service "cstbox-webadmin"
+cleanup_pyc
