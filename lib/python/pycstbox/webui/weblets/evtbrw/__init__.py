@@ -19,26 +19,18 @@
 """ Events browser weblet """
 
 __author__ = 'Eric PASCUAL - CSTB (eric.pascual@cstb.fr)'
-__copyright__ = 'Copyright (c) 2012 CSTB'
-__vcs_id__ = '$Id$'
-__version__ = '1.0.0'
 
-import tornado.web
-import importlib
-from collections import namedtuple
 if __debug__:
     import inspect
 
-import pycstbox.webui as webui
-from pycstbox.events import VALUE, UNITS
-import pycstbox.evtmgr as evtmgr
-import pycstbox.evtdao
-import pycstbox.log as log
+from pycstbox import webui, evtdao, log
+from pycstbox.events import DataKeys
 
 _logger = None
 
 DAO_NAME = 'fsys'
 dao = None
+
 
 def _init_(logger=None, settings=None):
     """ Module init function, called by the application framework during the
@@ -47,14 +39,17 @@ def _init_(logger=None, settings=None):
 
     _logger = logger if logger else log.getLogger('wblt-evtbrw')
 
-    dao = pycstbox.evtdao.get_dao(DAO_NAME)
+    dao = evtdao.get_dao(DAO_NAME)
     assert dao, "unable to instantiate a DAO for name=%s" % DAO_NAME
+
 
 class DisplayHandler(webui.WebletUIRequestHandler):
     """ UI display request handler """
     def get(self):
         self.render("evtbrw.html")
 
+
+#TODO Ajax handler should be removed and UI modified to use equivalent web service
 class GetAvailableDaysHandler(webui.WSHandler):
     """ AJAX request handler for retrieving the list of days
     for which data are available
@@ -75,6 +70,8 @@ class GetAvailableDaysHandler(webui.WSHandler):
 
         self.finish({'days' : days})
 
+
+#TODO Ajax handler should be removed and UI modified to use equivalent web service
 class GetEventsHandler(webui.WSHandler):
     """ AJAX request handler for retrieving the list of events
     available for a given day
@@ -91,8 +88,8 @@ class GetEventsHandler(webui.WSHandler):
         _events = []
         for event in dao.get_events_for_day(day):
             ts, var_type, var_name, data = event
-            value = data[VALUE] if data and data.has_key(VALUE) else ''
-            units = data[UNITS] if data and data.has_key(UNITS) else ''
+            value = data[DataKeys.VALUE] if data and data.has_key(DataKeys.VALUE) else ''
+            units = data[DataKeys.UNIT] if data and data.has_key(DataKeys.UNIT) else ''
             _events.append((ts.strftime('%Y-%m-%d %H:%M:%S.%f')[:-3],
                             var_type, var_name, value, units))
 
