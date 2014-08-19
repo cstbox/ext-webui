@@ -27,8 +27,7 @@ import tornado.web
 import tornado.autoreload
 import tornadobabel
 
-import pycstbox.log as log
-import pycstbox.config as config
+from pycstbox import log, config
 from pycstbox.webui.webui_lib import _checked_dir, GetUINotification
 from pycstbox.webui.webui_modules import ui_modules
 
