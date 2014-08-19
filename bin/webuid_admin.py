@@ -59,7 +59,7 @@ class AdminHomeHandler(webui.UIRequestHandler):
         self.render("admin-home.html", weblets=self.weblets)
 
 if __name__ == '__main__':
-    parser = cli.get_argument_parser('CSTBox Configuration Broker service')
+    parser = cli.get_argument_parser('CSTBox Web based console service')
     args = parser.parse_args()
 
     server = webui.AppServer("admin", debug=args.debug)
