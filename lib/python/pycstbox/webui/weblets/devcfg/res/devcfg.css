@@ -113,7 +113,7 @@ div.root-page-panel div.sub-panel {
 
 div.sub-panel-body {
     float: left;
-    width: 80%;
+    /*width: 80%;*/
 }
 
 div.sub-panel-body p:not(.sub-panel-header ) {
@@ -128,9 +128,10 @@ p.sub-panel-header {
     font-weight: bold;
 }
 
-div.sub-panel-body div.sub-panel-buttons {
+/*div.sub-panel-body div.sub-panel-buttons {*/
+div.sub-panel div.sub-panel-buttons {
     float: right;
-    width: 15%;
+    /*width: 15%;*/
     text-align: center;
 }
 
