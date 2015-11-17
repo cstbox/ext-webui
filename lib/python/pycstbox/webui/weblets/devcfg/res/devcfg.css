@@ -184,7 +184,8 @@ div#devinfo {
     Device editor
 */
 fieldset.variable-declaration legend {
-    text-align: right;
+    margin-left: 2em;
+    padding-top: 0.5em;
     width: 12em;
 }
 
