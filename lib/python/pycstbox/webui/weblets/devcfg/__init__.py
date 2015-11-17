@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 # This file is part of CSTBox.
@@ -18,28 +17,23 @@
 
 """ Device configuration editor weblet """
 
-__author__ = 'Eric PASCUAL - CSTB (eric.pascual@cstb.fr)'
-__copyright__ = 'Copyright (c) 2012 CSTB'
-__vcs_id__ = '$Id$'
-__version__ = '1.0.0'
-
-# allows catching Exception instances
-#pylint: disable=W0703
-
 import zipfile
 import subprocess
+import json
 
-import tornado.web
-
-import pycstbox.log as log
-import pycstbox.webui as webui
-import pycstbox.devcfg as devcfg
-import pycstbox.cfgbroker as cfgbroker
-import pycstbox.config as config
-import pycstbox.flags as flags
+from pycstbox import log
+from pycstbox import webui
+from pycstbox import devcfg
+from pycstbox import cfgbroker
+from pycstbox import config
+from pycstbox import flags
 from pycstbox.sysutils import str_2_bool
+from pycstbox import dbuslib
 
-from tornadobabel.mixin import TornadoBabelMixin
+__author__ = 'Eric PASCUAL - CSTB (eric.pascual@cstb.fr)'
+
+# allows catching Exception instances
+# pylint: disable=W0703
 
 _logger = None
 broker = None
@@ -57,13 +51,15 @@ def _init_(logger=None, settings=None):
 
     # get access to the configuration broker for notification sending
     _settings = settings
+    _logger.info("settings=%s", settings)
+
     _local_debug = settings and str_2_bool(settings.get('debug', 'false'))
 
     if settings and str_2_bool(settings.get('use_cfgbroker', 'true')):
         try:
             _logger.info('getting access to configuration broker')
             broker = cfgbroker.get_object()
-        except Exception as e: #pylint: disable=W0702
+        except Exception as e:  # pylint: disable=W0702
             _logger.error('cfgbroker access failed : %s', str(e))
     else:
         _logger.warning('configuration broker usage disabled by settings')
@@ -81,6 +77,7 @@ class DisplayHandler(webui.WebletUIRequestHandler):
         self.render("devcfg.html")
         if _local_debug or self.application.settings['debug']:
             _logger.setLevel(log.DEBUG)
+
 
 class DevCfgWSHandler(webui.WSHandler):
     """ Extended Web service base request handler """
@@ -109,7 +106,7 @@ class GetCoordinatorTypes(DevCfgWSHandler):
     """ AJAX request handler for retrieving the list of available coordinator types. """
     def do_get(self):
         result = devcfg.Metadata.coordinator_types()
-        self.finish(dict({'ctypes' : result}))
+        self.finish({'ctypes': result})
 
 
 class GetNetworkTree(DevCfgWSHandler):
@@ -162,7 +159,7 @@ class GetCoordinator(DevCfgWSHandler):
     def do_get(self):
         c_id = self.get_argument('uid')
         c_type = cfg[c_id].type
-        cmeta = {'type' : c_type}
+        cmeta = {'type': c_type}
         try:
             cmeta.update(devcfg.Metadata.coordinator(c_type))
             products = {}
@@ -290,7 +287,7 @@ class AddDevice(DevCfgWSHandler):
             cfg.add_device(c_id, dev)
             self.commit_changes(cfgbroker.CFGCHG_OBJ_DEVICE + cfgbroker.CFGCHG_OP_ADDED , uid)
 
-            self.finish({'uid' : uid})
+            self.finish({'uid': uid})
 
         except Exception as e:
             self.exception_reply(e)
@@ -302,9 +299,10 @@ _DEF_VALUES = {
     'varname': '',
     'choice': '',
     'int': '0',
-    'float' : '0.0',
+    'float': '0.0',
     'hexint': '0x0'
 }
+
 
 class UpdateDevice(DevCfgWSHandler):
     """ AJAX request handler for updating an existing device
@@ -492,13 +490,55 @@ class ClearConfiguration(DevCfgWSHandler):
         )
         self.finish()
 
-class StartDiscovery(DevCfgWSHandler):
+
+class CoordinatorServicesWSHandler(DevCfgWSHandler):
+    def get_coordinator_service(self, c_id):
+        # first get its type, since metadata are attached to types
+        c_cfg = json.loads(broker.get_coordinator(c_id))
+        c_type = c_cfg['type']
+
+        # get the metadata now
+        meta = devcfg.Metadata.coordinator(c_type)
+        dbus_meta = meta['dbus']
+        bus_name = dbus_meta['bus_name']
+        object_path = dbus_meta['object_path']
+
+        # finally get the service object we need
+        _logger.info("getting D-Bus object %s:%s", bus_name, object_path)
+        svc = dbuslib.get_object(bus_name, object_path)
+
+        return svc
+
+
+class StartDiscovery(CoordinatorServicesWSHandler):
     def do_get(self):
-        pass
+        c_id = self.get_argument('coordId')
+        p_name = self.get_argument('product')
+
+        svc = self.get_coordinator_service(c_id)
+
+        try:
+            addr = svc.discover(c_id, p_name)
+        except AttributeError as e:
+            self.exception_reply(e)
+        else:
+            self.finish({
+                'addr': addr,
+                # 'deviceId': self.get_argument('deviceId'),
+                # 'location': self.get_argument('location'),
+            })
 
 
-class StopDiscovery(DevCfgWSHandler):
-    pass
+class StopDiscovery(CoordinatorServicesWSHandler):
+    def do_get(self):
+        c_id = self.get_argument('coordId')
+        svc = self.get_coordinator_service(c_id)
+        try:
+            svc.stop_discovery(c_id)
+        except AttributeError as e:
+            self.exception_reply(e)
+        else:
+            self.finish()
 
 
 handlers = [
