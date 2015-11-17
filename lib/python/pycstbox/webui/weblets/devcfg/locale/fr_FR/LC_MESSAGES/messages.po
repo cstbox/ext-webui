@@ -105,8 +105,11 @@ msgstr "Nombre total d'équipements"
 msgid "Maintenance ID"
 msgstr "Id de maintenance"
 
-msgid "Use the appropriate action on the device to have it detected<br/>or hit the <b>Cancel</b> button to abort the procedure."
-msgstr "Déclenchez le mécanisme de détection sur votre équipement<br/>ou cliquez sur <b>Annuler</b> pour abandonner la procédure."
+msgid "Use the appropriate action on the device to have it detected"
+msgstr "Déclenchez le mécanisme de détection sur votre équipement"
+
+msgid "or hit the <b>Cancel</b> button to abort the procedure"
+msgstr "ou cliquez sur <b>Annuler</b> pour abandonner la procédure"
 
 msgid "Delete an existing device"
 msgstr "Supprimer un équipement"
