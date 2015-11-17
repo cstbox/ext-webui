@@ -30,7 +30,10 @@
             <div id="msgRediscovering"
                 class="ui-widget-content ui-corner-all ui-helper-hidden">
                 <p>{{_('Device discovery process running...')}}</p>
-                <p>{%raw _('Use the appropriate action on the device to have it detected<br/>or hit the <b>Cancel</b> button to abort the procedure.')%}</p>
+                <p>{%raw _('Use the appropriate action on the device to have it detected')%}
+                    <br/><span class="msg_cancel_disc">
+                        {%raw _('or hit the <b>Cancel</b> button to abort the procedure')%}
+                    </span></p>
                 <div class="ui-processing-indicator"></div>
                 <div class="buttons">
                     <button id="btnRediscoveryCancel" type="button">{{_('Cancel')}}</button>
@@ -119,7 +122,10 @@
                 <div id="msgDiscovering"
                     class="ui-widget-content ui-corner-all ui-helper-hidden">
                     <p>{{_('Device discovery process running...')}}</p>
-                    <p>{%raw _('Use the appropriate action on the device to have it detected<br/>or hit the <b>Cancel</b> button to abort the procedure.')%}</p>
+                    <p>{%raw _('Use the appropriate action on the device to have it detected')%}
+                        <br/><span class="msg_cancel_disc">
+                            {%raw _('or hit the <b>Cancel</b> button to abort the procedure')%}
+                    </span></p>
                     <div class="ui-processing-indicator"></div>
                     <div class="buttons">
                         <button id="btnCancelDiscovery" type="button">{{_('Cancel')}}</button>
