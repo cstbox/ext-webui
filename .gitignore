@@ -14,3 +14,5 @@ cstbox-ext-webui_*.tgz
 cstbox-*_all/
 deprecated/
 lib/python/pycstbox/__init__.py
+RELEASE-VERSION
+ext-deps/

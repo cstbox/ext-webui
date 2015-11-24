@@ -4,15 +4,16 @@ div.toplevel {
 
 div#tool-selector {
     width: 15em;
-    height: 100%;
     float: left;
-    padding: 0 5px;
+    padding: 10px 5px;
     margin-right: 10px;
     text-align: center;
+    height: 100%;
 }
 
 div#tool-page-container {
     padding: 10px;
+    height: 100%;
 }
 
 div.tool-page {
