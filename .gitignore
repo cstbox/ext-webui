@@ -1,3 +1,4 @@
+*.bak
 cstbox-ext-webui_*.tgz
 .backup
 *~
