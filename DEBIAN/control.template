@@ -1,0 +1,12 @@
+Package: cstbox-ext-webui
+Version: %(version)s
+Section: base
+Priority: optional
+Architecture: all
+Depends: cstbox-core, cstbox-deps
+Maintainer: Eric Pascual <eric.pascual@cstb.fr>
+Description: CSTBox Web based user interface
+ This package installs the extension providing the Web based user interface of the CSTBox.
+ This includes :
+ - tke core engine and library
+ - the basic administration weblets
