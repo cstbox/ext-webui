@@ -74,17 +74,17 @@
         <div class="actions">
             <div class="title">{{_('Modify an existing device')}}</div>
             <div class="content">{{_('Click on it in the tree to open the device editor')}}</div>
-            <!--  -->
+            <!--
             <div class="title">{{_('Delete an existing device')}}</div>
             <div class="content">{{_('Right-click on it in the tree to open the contextual menu.')}} <br/>
             <em>{%raw _('A <b>Delete</b> button is also available in the device editor')%}</em>
             </div>
-            <!--  -->
+             -->
             <div class="title">{{_('Attach a new device to this coordinator')}}</div>
             <div class="content">
                 <div id="newDeviceFormContainter"
                     class="ui-widget-content ui-corner-all">
-                    <form id="frmNewDevice">
+                    <form id="frmNewDevice" action="#">
                         <fieldset class="compact">
                             <p>
                                 <label for="newDevProduct" class="prompt">{{_('Product')}}</label><select
@@ -163,10 +163,10 @@
                     <select id="newCoordType" name="newCoordType" width="20" style="width: 100px"></select>
                     <p>
                         <label for="newCoordId" class="prompt">{{_('Id')}}</label> 
-                        <input name="newCoordId" style="width: 100px" class="required"/>
+                        <input id="newCoordId" name="newCoordId" style="width: 100px" class="required"/>
                     <p>
                         <label for="newPortId" class="prompt">{{_('Port')}}</label> 
-                        <input name="newPortId" style="width: 100px" class="required"/>
+                        <input id="newPortId" name="newPortId" style="width: 100px" class="required"/>
                 </fieldset>
                 <div class="buttons sub-panel-buttons" >
                     <button type="submit">{{_('Do it')}}</button>
@@ -235,7 +235,7 @@
 </textarea>
 <textarea id="variable-declaration">
     <fieldset class="variable-declaration">
-        <legend>{{_('Associated variable')}} :</legend>
+        <p class="header">{{_('Associated variable')}} :</p>
         <p><label class='prompt'>{{_('Definition')}}</label>
         <span class="readonly_field">{{_('type')}} : {2} - {{_('units')}} : {3}</span>
         </p>

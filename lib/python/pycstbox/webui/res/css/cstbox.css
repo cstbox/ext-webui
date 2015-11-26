@@ -371,23 +371,25 @@ div.buttons {
 */
 
 .ui-transp-bkgnd {
-    /* for browsers not supporting RGBa */
-    background: rgb(255,255,255);
-    /* for serious browsers */
-    background: rgba(255,255,255,0.7);
-    /* for... guess who :/ */
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2ffffff, endColorstr=#b2ffffff);
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2ffffff, endColorstr=#b2ffffff)";
+    /*!* for browsers not supporting RGBa *!*/
+    /*background: rgb(255,255,255);*/
+    /*!* for serious browsers *!*/
+    /*background: rgba(255,255,255,0.7);*/
+    /*!* for... guess who :/ *!*/
+    /*filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2ffffff, endColorstr=#b2ffffff);*/
+    /*-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2ffffff, endColorstr=#b2ffffff)";*/
 }
 
 .ui-dialog, .ui-dialog-bkgnd {
     background: rgb(255,255,255);
 }
 
-.ui-widget-content {   
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-}
+/*.ui-widget-content {   */
+    /*border-right: 1px solid black;*/
+    /*border-bottom: 1px solid black;*/
+    /*border: none;*/
+    /*background: #fcfdfd 50%;*/
+/*}*/
 
 .scrollable {
     overflow: auto;
