@@ -17,3 +17,4 @@ deprecated/
 lib/python/pycstbox/__init__.py
 RELEASE-VERSION
 ext-deps/
+DEBIAN/control
