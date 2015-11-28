@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Event Browser\n"
+"POT-Creation-Date: 2015-11-28 23:08:59.349267\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Eric PASCUAL <eric.pascual@cstb.fr>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: fr\n"
+"X-Poedit-Country: FR\n"
+
+msgid "Show events containing"
+msgstr "Afficher les événements contenant"
+
+msgid "_TOTAL_ event(s)"
+msgstr "_TOTAL_ événement(s)"
+
+msgid " (of _MAX_)"
+msgstr " (sur _MAX_)"
+
+msgid "Getting data for selected date"
+msgstr "Récupération des données pour la date choisie"
+
+msgid "Data loaded"
+msgstr "Données chargées"
+
+msgid "Formatting data. {0}% done"
+msgstr "Mise en forme. {0}% fait"
+
+msgid "Su Mo Tu We Th Fr Sa"
+msgstr "Di Lu Ma Me Je Ve Sa"
+
+msgid "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec"
+msgstr "Jan Fev Mars Avr Mai Juin Juil Août Sep Oct Nov Déc"
