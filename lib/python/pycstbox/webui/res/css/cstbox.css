@@ -371,17 +371,12 @@ div.buttons {
 */
 
 .ui-transp-bkgnd {
-    /*!* for browsers not supporting RGBa *!*/
-    /*background: rgb(255,255,255);*/
-    /*!* for serious browsers *!*/
-    /*background: rgba(255,255,255,0.7);*/
-    /*!* for... guess who :/ *!*/
-    /*filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2ffffff, endColorstr=#b2ffffff);*/
-    /*-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2ffffff, endColorstr=#b2ffffff)";*/
+    opacity: 0.9;
 }
 
 .ui-dialog, .ui-dialog-bkgnd {
-    background: rgb(255,255,255);
+    /*background: rgb(255,255,255);*/
+    opacity: 1;
 }
 
 /*.ui-widget-content {   */

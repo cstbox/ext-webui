@@ -18,29 +18,27 @@
 
 """ Events browser weblet """
 
-__author__ = 'Eric PASCUAL - CSTB (eric.pascual@cstb.fr)'
+from pycstbox import webui
+from pycstbox import log
+from pycstbox import evtdb
+from pycstbox.events import DataKeys
+from pycstbox.evtmgr import SENSOR_EVENT_CHANNEL
 
 if __debug__:
     import inspect
 
-from pycstbox import webui, evtdao, log
-from pycstbox.events import DataKeys
+__author__ = 'Eric PASCUAL - CSTB (eric.pascual@cstb.fr)'
 
 _logger = None
-
-DAO_NAME = 'fsys'
-dao = None
 
 
 def _init_(logger=None, settings=None):
     """ Module init function, called by the application framework during the
     weblets discovery process."""
-    global _logger, dao  #pylint: disable=W0603
-
+    global _logger
     _logger = logger if logger else log.getLogger('wblt-evtbrw')
 
-    dao = evtdao.get_dao(DAO_NAME)
-    assert dao, "unable to instantiate a DAO for name=%s" % DAO_NAME
+    _logger.info('init complete')
 
 
 class DisplayHandler(webui.WebletUIRequestHandler):
@@ -49,7 +47,6 @@ class DisplayHandler(webui.WebletUIRequestHandler):
         self.render("evtbrw.html")
 
 
-#TODO Ajax handler should be removed and UI modified to use equivalent web service
 class GetAvailableDaysHandler(webui.WSHandler):
     """ AJAX request handler for retrieving the list of days
     for which data are available
@@ -58,20 +55,18 @@ class GetAvailableDaysHandler(webui.WSHandler):
         m : the month number (1 <= m <= 12)
         y : the year (full number with centuries)
     """
-    _dao = None
-
     def do_get(self):
         month = int(self.get_argument("m"))
         year = int(self.get_argument("y"))
 
         days = []
-        for day in dao.get_available_days((year, month)):
-            days.append(day.strftime('%Y/%m/%d'))
+        svc_obj = evtdb.get_object(SENSOR_EVENT_CHANNEL)
+        for day in svc_obj.get_available_days(year, month):
+            days.append(day.replace('-', '/'))
 
         self.finish({'days' : days})
 
 
-#TODO Ajax handler should be removed and UI modified to use equivalent web service
 class GetEventsHandler(webui.WSHandler):
     """ AJAX request handler for retrieving the list of events
     available for a given day
@@ -86,11 +81,12 @@ class GetEventsHandler(webui.WSHandler):
         day = self.get_argument("d").replace('/', '-')
 
         _events = []
-        for event in dao.get_events_for_day(day):
-            ts, var_type, var_name, data = event
-            value = data[DataKeys.VALUE] if data and data.has_key(DataKeys.VALUE) else ''
+        svc_obj = evtdb.get_object(SENSOR_EVENT_CHANNEL)
+        for event in svc_obj.get_events_for_day(day):
+            ts, var_type, var_name, value, data = event
+            value = value or ''
             units = data[DataKeys.UNIT] if data and data.has_key(DataKeys.UNIT) else ''
-            _events.append((ts.strftime('%Y-%m-%d %H:%M:%S.%f')[:-3],
+            _events.append((ts[:-3],        # limit precision to milliseconds
                             var_type, var_name, value, units))
 
         self.finish({'events' : _events})
