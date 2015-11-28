@@ -27,8 +27,8 @@ msgstr "Récupération des données pour la date choisie"
 msgid "Data loaded"
 msgstr "Données chargées"
 
-msgid "Formatting data. {0}% done"
-msgstr "Mise en forme. {0}% fait"
+msgid "Formatting... {0}% done."
+msgstr "Mise en forme... {0}% fait."
 
 msgid "Su Mo Tu We Th Fr Sa"
 msgstr "Di Lu Ma Me Je Ve Sa"
