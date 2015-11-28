@@ -191,7 +191,7 @@ div#devinfo {
 fieldset.variable-declaration {
     background: whitesmoke;
     padding-bottom: 10px;
-    margin-top: 0.5em;
+    margin-top: 1.5em;
 }
 
 fieldset.variable-declaration p.header {
@@ -202,9 +202,9 @@ fieldset.variable-declaration p.header {
     color: #2e6e9e;
 }
 
-fieldset.variable-declaration label.prompt {
-    font-style: italic;
-}
+/*fieldset.variable-declaration label.prompt {*/
+    /*font-style: italic;*/
+/*}*/
 
 label span.label-suffix {
     font-style: italic;

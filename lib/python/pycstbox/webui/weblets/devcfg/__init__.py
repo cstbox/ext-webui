@@ -492,14 +492,16 @@ class ClearConfiguration(DevCfgWSHandler):
 
 
 class CoordinatorServicesWSHandler(DevCfgWSHandler):
-    def get_coordinator_service(self, c_id):
-        # first get its type, since metadata are attached to types
+    def _get_dbus_meta(self, c_id):
         c_cfg = json.loads(broker.get_coordinator(c_id))
         c_type = c_cfg['type']
 
         # get the metadata now
         meta = devcfg.Metadata.coordinator(c_type)
-        dbus_meta = meta['dbus']
+        return meta['dbus']
+
+    def get_coordinator_service(self, c_id):
+        dbus_meta = self._get_dbus_meta(c_id)
         bus_name = dbus_meta['bus_name']
         object_path = dbus_meta['object_path']
 
@@ -509,18 +511,32 @@ class CoordinatorServicesWSHandler(DevCfgWSHandler):
 
         return svc
 
+    def get_coordinator_service_interface(self, c_id, interface_name=None):
+        dbus_meta = self._get_dbus_meta(c_id)
+
+        svc = self.get_coordinator_service(c_id)
+        dbus_interface = dbuslib.make_interface_name(interface_name or dbus_meta['bus_name'])
+        return dbuslib.dbus.Interface(svc, dbus_interface=dbus_interface)
+
 
 class StartDiscovery(CoordinatorServicesWSHandler):
     def do_get(self):
         c_id = self.get_argument('coordId')
         p_name = self.get_argument('product')
 
-        svc = self.get_coordinator_service(c_id)
+        dbus_meta = self._get_dbus_meta(c_id)
+        interfaces = dbus_meta.get('interfaces', None)
+        if interfaces:
+            interface_name = interfaces.get('discovery', interfaces['*'])
+        else:
+            interface_name = None
+        iface = self.get_coordinator_service_interface(c_id, interface_name=interface_name)
 
         try:
-            addr = svc.discover(c_id, p_name)
+            addr = iface.discover(c_id, p_name)
         except AttributeError as e:
             self.exception_reply(e)
+        # except NoReply
         else:
             self.finish({
                 'addr': addr,
