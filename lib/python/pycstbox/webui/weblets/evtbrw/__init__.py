@@ -59,8 +59,12 @@ class GetAvailableDaysHandler(webui.WSHandler):
         month = int(self.get_argument("m"))
         year = int(self.get_argument("y"))
 
-        days = []
         svc_obj = evtdb.get_object(SENSOR_EVENT_CHANNEL)
+
+        # ensure pending data are written on physical storage
+        svc_obj.flush()
+
+        days = []
         for day in svc_obj.get_available_days(year, month):
             days.append(day.replace('-', '/'))
 
@@ -80,8 +84,12 @@ class GetEventsHandler(webui.WSHandler):
     def get(self):
         day = self.get_argument("d").replace('/', '-')
 
-        _events = []
         svc_obj = evtdb.get_object(SENSOR_EVENT_CHANNEL)
+
+        # ensure pending data are written on physical storage
+        svc_obj.flush()
+
+        _events = []
         for event in svc_obj.get_events_for_day(day):
             ts, var_type, var_name, value, data = event
             value = value or ''
