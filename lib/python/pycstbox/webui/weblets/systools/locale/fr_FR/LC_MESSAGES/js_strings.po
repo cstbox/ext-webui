@@ -51,7 +51,7 @@ msgstr "arrêté"
 msgid "Restarting"
 msgstr "Redémarrage en cours"
 
-msgid "Reconnecting to de box"
+msgid "Reconnecting to the box"
 msgstr "Reconnexion à la box en cours"
 
 msgid "Starting service"
