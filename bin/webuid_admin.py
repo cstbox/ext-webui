@@ -71,9 +71,9 @@ if __name__ == '__main__':
     #server.weblets_home = os.path.join(_here, 'weblets_admin')
 
     settings = {
-        "product" : "CSTBox",
-        "main_title" : "Administration Console",
-        "version" : "1.0.0"
+        "product": "CSTBox",
+        "main_title": "Administration Console",
+        "version": webui.version
     }
 
     try:

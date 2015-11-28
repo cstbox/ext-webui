@@ -31,6 +31,7 @@ from pycstbox import log, config
 from pycstbox.webui.webui_lib import _checked_dir, GetUINotification
 from pycstbox.webui.webui_modules import ui_modules
 
+
 _here = os.path.dirname(__file__)
 
 MANIFEST_FILE_NAME = 'MANIFEST'
@@ -392,8 +393,8 @@ class AppServer(object):
         settings = {
             'debug': self._debug,
             'template_path': self.templates_home,
-            'app_name' : self._app_name,
-            'ui_modules' : uim
+            'app_name': self._app_name,
+            'ui_modules': uim
         }
 
         # 2/  specific settings as defined in custom_settings

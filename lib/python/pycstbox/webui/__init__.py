@@ -15,3 +15,8 @@
 
 from webui_lib import *
 from webui_app import *
+
+try:
+    from __version__ import version
+except ImportError:
+    version = '0.0.0'
