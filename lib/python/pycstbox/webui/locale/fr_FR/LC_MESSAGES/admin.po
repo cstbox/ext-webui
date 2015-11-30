@@ -12,3 +12,5 @@ msgstr ""
 msgid "Administration Console"
 msgstr "Console d'administration"
 
+msgid "WebUI version"
+msgstr "Version WebUI"
