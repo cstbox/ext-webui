@@ -18,14 +18,6 @@
 
 """ System wide configuration and tools weblet """
 
-__author__ = 'Eric PASCUAL - CSTB (eric.pascual@cstb.fr)'
-__copyright__ = 'Copyright (c) 2013 CSTB'
-__vcs_id__ = '$Id$'
-__version__ = '1.0.0'
-
-# allows catching Exception instances
-#pylint: disable=W0703
-
 import os
 import zipfile
 from cgi import escape as html_escape
@@ -40,8 +32,15 @@ import pycstbox.sysutils as sysutils
 
 from tornadobabel.mixin import TornadoBabelMixin
 
-_logger = None
+__author__ = 'Eric PASCUAL - CSTB (eric.pascual@cstb.fr)'
+
+# allows catching Exception instances
+#pylint: disable=W0703
+
+
+_logger = log.getLogger('wblt-systools')
 _tools_list = None
+
 
 class ToolDescriptor(object):
     def __init__(self, icon, label, descr):
@@ -69,6 +68,7 @@ class ToolDescriptor(object):
 
 LogInfos = namedtuple('LogInfos', 'name size')
 
+
 def _get_log_list():
     log_names = sorted(
         [l for l in  os.listdir(config.GlobalSettings.LOGFILES_DIR)
@@ -85,8 +85,10 @@ def _get_log_list():
 
 ServiceInfos = namedtuple('ServiceInfos', 'name infos')
 
+
 def _get_svc_list():
     return sysutils.get_services_manager().get_service_info()
+
 
 class DisplayHandler(webui.WebletUIRequestHandler):
     """ UI display request handler """
@@ -99,6 +101,7 @@ class DisplayHandler(webui.WebletUIRequestHandler):
         if self.application.settings['debug']:
             _logger.setLevel(log.DEBUG)
 
+
 class GetGlobalParms(webui.WSHandler):
     def do_get(self):
         gs = config.GlobalSettings()
@@ -106,6 +109,7 @@ class GetGlobalParms(webui.WSHandler):
             'system_id' : gs.get('system_id')
         }
         self.finish(reply)
+
 
 class SetGlobalParms(webui.WSHandler):
     def do_get(self):
@@ -119,10 +123,12 @@ class SetGlobalParms(webui.WSHandler):
             reply = {'status' : True}
             self.finish(reply)
 
+
 class GetLogsList(webui.WSHandler):
     def do_get(self):
         reply = {'logs' : _get_log_list()}
         self.finish(reply)
+
 
 class GetLog(webui.WSHandler):
     def do_get(self):
@@ -143,6 +149,7 @@ class GetLog(webui.WSHandler):
                 lines.append("<span class='%s'>%s</span>" % (css_class, line))
             reply = {'lines' : '<br>'.join(lines)}
         self.finish(reply)
+
 
 class ExportLogs(webui.WSHandler):
     TMPZIP = '/tmp/cstbox-logs.zip'
@@ -172,10 +179,12 @@ class ExportLogs(webui.WSHandler):
                     self.write(data)
         self.finish()
 
+
 class GetServicesList(webui.WSHandler):
     def do_get(self):
         reply = {'svc_list' : _get_svc_list()}
         self.finish(reply)
+
 
 class StartStopService(webui.WSHandler):
     _action = None
@@ -194,6 +203,7 @@ class StartStopService(webui.WSHandler):
             self.exception_reply(e)
         except AttributeError:
             self.error_reply('invalid action : %s' % self._action)
+
 
 class Restart(webui.WSHandler):
     def do_get(self):
@@ -217,7 +227,6 @@ class Restart(webui.WSHandler):
         else:
             self.finish({'status' : 'ok'})
 
-_logger = log.getLogger('wblt-systools')
 handlers = [
     (r"/gparms/get", GetGlobalParms, dict(logger=_logger)),
     (r"/gparms/set", SetGlobalParms, dict(logger=_logger)),
