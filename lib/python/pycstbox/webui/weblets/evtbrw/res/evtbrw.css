@@ -6,6 +6,10 @@
     float: left;
 }
 
+#datepicker {
+    margin-bottom: 1em;
+}
+
 #events-display {
     overflow : auto;
     height: 100%;
